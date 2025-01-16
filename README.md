@@ -40,7 +40,11 @@ MYSQL_USER=your_mysql_user
 MYSQL_PASSWORD=your_mysql_password
 MYSQL_DATABASE=book
 MYSQL_ROOT_PASSWORD=your_mysql_root_password
-Replace the values with your MySQL user, password, and database settings.
+OPENAI_API_KEY=""
+LANGSMITH_API_KEY=""
+LANGCHAIN_TRACING_V2=true
+LANGSMITH_TRACING=true
+LANGSMITH_ENDPOINT="https://api.smith.langchain.com"
 ~~~
 ### 3. Configure Docker
 Ensure Docker is installed and running on your machine. The project uses Docker Compose to start the MySQL database.
