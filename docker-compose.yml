@@ -1,0 +1,22 @@
+version: '3.8'
+name: book-recommendation-assistant
+
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysql-book-recommendation
+    environment:
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+    ports:
+      - "3308:3306"
+    volumes:
+      - ./dataset/book/books.sql:/docker-entrypoint-initdb.d/books.sql
+      - ./dataset/book/books.csv:/var/lib/mysql-files/books.csv
+    command: >
+      bash -c "
+      exec docker-entrypoint.sh mysqld
+      "
+  
